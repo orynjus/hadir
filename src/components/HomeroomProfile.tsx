@@ -6,13 +6,13 @@ import { Badge } from '@/components/ui/badge';
 
 export default function HomeroomProfile() {
   const teacher = {
-    name: 'Dra. Ratna Sari',
-    nip: '197508172000032002',
-    subject: 'Biologi',
-    homeroomClass: 'XII IPA 1',
-    email: 'ratna.sari@sekolah.sch.id',
-    phone: '081345678901',
-    address: 'Jl. Melati No. 12, Jakarta',
+    name: '-',
+    nip: '-',
+    subject: '-',
+    homeroomClass: '-',
+    email: '-',
+    phone: '-',
+    address: '-',
   };
 
   return (

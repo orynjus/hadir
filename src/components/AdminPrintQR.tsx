@@ -10,21 +10,16 @@ export default function AdminPrintQR() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedClass, setSelectedClass] = useState('Semua Kelas');
 
-  const mockUsers = [
-    { id: 1, name: 'Budi Santoso', identifier: '123456789', role: 'Siswa', class: 'XII IPA 1' },
-    { id: 2, name: 'Siti Aminah', identifier: '123456790', role: 'Siswa', class: 'XII IPA 1' },
-    { id: 3, name: 'Andi Wijaya', identifier: '123456791', role: 'Siswa', class: 'XII IPA 2' },
-    { id: 4, name: 'Ahmad Hidayat, S.Pd', identifier: '198001012005011001', role: 'Guru', class: '-' },
-  ];
+  const users: any[] = [];
 
-  const filteredUsers = mockUsers.filter(user => 
+  const filteredUsers = users.filter(user => 
     user.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
     user.identifier.includes(searchQuery)
   );
 
   const massPrintUsers = selectedClass === 'Semua Kelas' 
-    ? mockUsers 
-    : mockUsers.filter(user => user.class === selectedClass);
+    ? users 
+    : users.filter(user => user.class === selectedClass);
 
   const handlePrint = () => {
     window.print();

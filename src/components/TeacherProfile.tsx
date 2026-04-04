@@ -6,12 +6,12 @@ import { Badge } from '@/components/ui/badge';
 
 export default function TeacherProfile() {
   const teacher = {
-    name: 'Ahmad Hidayat, S.Pd.',
-    nip: '198001012005011001',
-    subject: 'Matematika',
-    email: 'ahmad.hidayat@sekolah.sch.id',
-    phone: '081298765432',
-    address: 'Jl. Pendidikan No. 45, Jakarta',
+    name: '-',
+    nip: '-',
+    subject: '-',
+    email: '-',
+    phone: '-',
+    address: '-',
   };
 
   return (

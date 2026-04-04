@@ -10,14 +10,7 @@ export default function HomeroomRecap() {
   const [selectedMonth, setSelectedMonth] = useState('2026-04');
 
   // Mock data rekap
-  const recapData = [
-    { id: 1, name: 'Budi Santoso', nis: '123456789', class: 'XII IPA 1', hadir: 18, terlambat: 2, sakit: 0, izin: 0, alpa: 0 },
-    { id: 2, name: 'Siti Aminah', nis: '123456790', class: 'XII IPA 1', hadir: 20, terlambat: 0, sakit: 0, izin: 0, alpa: 0 },
-    { id: 3, name: 'Andi Wijaya', nis: '123456791', class: 'XII IPA 1', hadir: 17, terlambat: 1, sakit: 1, izin: 1, alpa: 0 },
-    { id: 4, name: 'Dewi Lestari', nis: '123456792', class: 'XII IPA 1', hadir: 15, terlambat: 0, sakit: 3, izin: 0, alpa: 2 },
-    { id: 5, name: 'Reza Rahadian', nis: '123456793', class: 'XII IPA 1', hadir: 19, terlambat: 0, sakit: 0, izin: 0, alpa: 1 },
-    { id: 6, name: 'Ahmad Fauzi', nis: '123456794', class: 'XII IPA 2', hadir: 20, terlambat: 0, sakit: 0, izin: 0, alpa: 0 },
-  ];
+  const recapData: any[] = [];
 
   const filteredData = recapData.filter(s => s.class === selectedClass);
 

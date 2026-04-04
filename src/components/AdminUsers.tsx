@@ -13,15 +13,9 @@ export default function AdminUsers() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('siswa');
 
-  const [siswaList, setSiswaList] = useState([
-    { id: 1, name: 'Budi Santoso', identifier: '123456789', class: 'XII IPA 1', phone: '081234567890' },
-    { id: 2, name: 'Siti Aminah', identifier: '123456790', class: 'XII IPA 1', phone: '081298765432' },
-  ]);
+  const [siswaList, setSiswaList] = useState<any[]>([]);
 
-  const [guruList, setGuruList] = useState([
-    { id: 1, name: 'Ahmad Hidayat, S.Pd', identifier: '198001012005011001', subject: 'Matematika', phone: '081345678901' },
-    { id: 2, name: 'Dra. Ratna Sari', identifier: '197508172000032002', subject: 'Biologi', phone: '081567890123' },
-  ]);
+  const [guruList, setGuruList] = useState<any[]>([]);
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

@@ -23,6 +23,16 @@ export default function AdminSettings() {
   const [newHolidayDate, setNewHolidayDate] = useState('');
   const [newHolidayDesc, setNewHolidayDesc] = useState('');
 
+  const [schoolName, setSchoolName] = useState('SMA Negeri 1 Contoh');
+  const [appName, setAppName] = useState('HadirAI');
+  const [sheetId, setSheetId] = useState('');
+  const [driveId, setDriveId] = useState('');
+  const [fonnteToken, setFonnteToken] = useState('');
+  const [msgDatang, setMsgDatang] = useState('Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa ananda telah tiba di sekolah pada pukul {waktu_scan}.');
+  const [msgPulang, setMsgPulang] = useState('Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa ananda telah pulang dari sekolah pada pukul {waktu_scan}.');
+  const [msgAlpa, setMsgAlpa] = useState('Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa hingga batas waktu yang ditentukan, ananda tercatat TIDAK HADIR (Alpa) di sekolah hari ini.');
+  const [msgIzin, setMsgIzin] = useState('Pemberitahuan: Siswa {nama_siswa} mengajukan izin ({jenis_izin}) pada tanggal {tanggal}. Alasan: {alasan}.');
+
   const updateSchedule = (index: number, field: string, value: string | boolean) => {
     const newSchedules = [...schedules];
     newSchedules[index] = { ...newSchedules[index], [field]: value };
@@ -86,11 +96,11 @@ export default function AdminSettings() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label>Nama Sekolah</Label>
-                <Input type="text" placeholder="Masukkan Nama Sekolah" defaultValue="SMA Negeri 1 Contoh" />
+                <Input type="text" placeholder="Masukkan Nama Sekolah" value={schoolName} onChange={(e) => setSchoolName(e.target.value)} />
               </div>
               <div className="space-y-2">
                 <Label>Nama Aplikasi</Label>
-                <Input type="text" placeholder="Masukkan Nama Aplikasi" defaultValue="HadirAI" />
+                <Input type="text" placeholder="Masukkan Nama Aplikasi" value={appName} onChange={(e) => setAppName(e.target.value)} />
               </div>
             </CardContent>
           </Card>
@@ -258,12 +268,12 @@ export default function AdminSettings() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label>Google Sheet ID (Untuk Database/Import)</Label>
-                <Input placeholder="Masukkan ID Spreadsheet..." defaultValue="1BxiMVs0XRYFgwnLEkp..." />
+                <Input placeholder="Masukkan ID Spreadsheet..." value={sheetId} onChange={(e) => setSheetId(e.target.value)} />
                 <p className="text-xs text-gray-500">ID dapat ditemukan pada URL Google Sheet Anda.</p>
               </div>
               <div className="space-y-2">
                 <Label>Google Drive Folder ID (Untuk Foto Izin)</Label>
-                <Input placeholder="Masukkan ID Folder Drive..." defaultValue="0BwwA4oUTwgctYm..." />
+                <Input placeholder="Masukkan ID Folder Drive..." value={driveId} onChange={(e) => setDriveId(e.target.value)} />
               </div>
               <div className="pt-4">
                 <Button variant="outline" className="w-full sm:w-auto" onClick={handleTestConnection}>Test Koneksi Google API</Button>
@@ -292,27 +302,30 @@ export default function AdminSettings() {
               </div>
               <div className="space-y-2">
                 <Label>Fonnte API Token</Label>
-                <Input type="password" placeholder="Masukkan Token API Fonnte..." defaultValue="token_rahasia_123" />
+                <Input type="password" placeholder="Masukkan Token API Fonnte..." value={fonnteToken} onChange={(e) => setFonnteToken(e.target.value)} />
               </div>
               <div className="space-y-2">
                 <Label>Template Pesan Datang (Hadir)</Label>
                 <textarea 
                   className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  defaultValue="Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa ananda telah tiba di sekolah pada pukul {waktu_scan}."
+                  value={msgDatang}
+                  onChange={(e) => setMsgDatang(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
                 <Label>Template Pesan Pulang</Label>
                 <textarea 
                   className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  defaultValue="Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa ananda telah pulang dari sekolah pada pukul {waktu_scan}."
+                  value={msgPulang}
+                  onChange={(e) => setMsgPulang(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
                 <Label>Template Pesan Alpa (Tidak Hadir)</Label>
                 <textarea 
                   className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  defaultValue="Yth. Orang Tua dari {nama_siswa}, kami menginformasikan bahwa hingga batas waktu yang ditentukan, ananda tercatat TIDAK HADIR (Alpa) di sekolah hari ini."
+                  value={msgAlpa}
+                  onChange={(e) => setMsgAlpa(e.target.value)}
                 />
                 <p className="text-xs text-gray-500">Pesan ini akan dikirim otomatis pada Jam Batas Alpa jika siswa belum melakukan scan datang dan tidak ada izin.</p>
               </div>
@@ -320,7 +333,8 @@ export default function AdminSettings() {
                 <Label>Template Pesan Izin (Ke Wali Kelas)</Label>
                 <textarea 
                   className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  defaultValue="Pemberitahuan: Siswa {nama_siswa} mengajukan izin ({jenis_izin}) pada tanggal {tanggal}. Alasan: {alasan}."
+                  value={msgIzin}
+                  onChange={(e) => setMsgIzin(e.target.value)}
                 />
                 <p className="text-xs text-gray-500">Gunakan tag: {'{nama_siswa}'}, {'{waktu_scan}'}, {'{jenis_izin}'}, {'{tanggal}'}, {'{alasan}'}</p>
               </div>

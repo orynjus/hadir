@@ -5,13 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, XCircle, Clock } from 'lucide-react';
 
 export default function StudentHistory() {
-  const history = [
-    { id: 1, date: '2026-04-02', timeIn: '06:45', timeOut: '15:10', status: 'Hadir' },
-    { id: 2, date: '2026-04-01', timeIn: '06:50', timeOut: '15:05', status: 'Hadir' },
-    { id: 3, date: '2026-03-31', timeIn: '07:15', timeOut: '15:00', status: 'Terlambat' },
-    { id: 4, date: '2026-03-30', timeIn: '-', timeOut: '-', status: 'Sakit' },
-    { id: 5, date: '2026-03-29', timeIn: '06:40', timeOut: '15:15', status: 'Hadir' },
-  ];
+  const history: any[] = [];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -41,7 +35,7 @@ export default function StudentHistory() {
             </div>
             <div>
               <p className="text-sm text-gray-500 font-medium">Hadir</p>
-              <p className="text-2xl font-bold">18</p>
+              <p className="text-2xl font-bold">0</p>
             </div>
           </CardContent>
         </Card>
@@ -52,7 +46,7 @@ export default function StudentHistory() {
             </div>
             <div>
               <p className="text-sm text-gray-500 font-medium">Terlambat</p>
-              <p className="text-2xl font-bold">2</p>
+              <p className="text-2xl font-bold">0</p>
             </div>
           </CardContent>
         </Card>
@@ -63,7 +57,7 @@ export default function StudentHistory() {
             </div>
             <div>
               <p className="text-sm text-gray-500 font-medium">Sakit/Izin</p>
-              <p className="text-2xl font-bold">1</p>
+              <p className="text-2xl font-bold">0</p>
             </div>
           </CardContent>
         </Card>

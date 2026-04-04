@@ -11,10 +11,7 @@ import { MessageSquare } from 'lucide-react';
 
 export default function StudentLeaveRequest() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [leaveHistory, setLeaveHistory] = useState([
-    { id: 1, date: '2026-03-30', type: 'Sakit', reason: 'Demam tinggi', status: 'Disetujui' },
-    { id: 2, date: '2026-02-15', type: 'Izin', reason: 'Acara keluarga', status: 'Disetujui' },
-  ]);
+  const [leaveHistory, setLeaveHistory] = useState<any[]>([]);
 
   const [formData, setFormData] = useState({
     type: '',

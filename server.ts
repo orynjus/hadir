@@ -27,12 +27,7 @@ db.exec(`
 
 // Seed data if empty
 const count = db.prepare("SELECT COUNT(*) as count FROM students").get() as { count: number };
-if (count.count === 0) {
-  const insert = db.prepare("INSERT INTO students (name, avatar_url) VALUES (?, ?)");
-  insert.run("Budi Santoso", "");
-  insert.run("Siti Aminah", "");
-  insert.run("Andi Wijaya", "");
-}
+// Removed seed data as requested
 
 async function startServer() {
   const app = express();

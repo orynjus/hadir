@@ -9,13 +9,7 @@ export default function AdminRecap() {
   const [selectedGroup, setSelectedGroup] = useState('Semua');
 
   // Mock data rekap
-  const recapData = [
-    { id: 1, name: 'Budi Santoso', identifier: '123456789', role: 'Siswa', group: 'XII IPA 1', hadir: 18, terlambat: 2, sakit: 0, izin: 0, alpa: 0 },
-    { id: 2, name: 'Siti Aminah', identifier: '123456790', role: 'Siswa', group: 'XII IPA 1', hadir: 20, terlambat: 0, sakit: 0, izin: 0, alpa: 0 },
-    { id: 3, name: 'Andi Wijaya', identifier: '123456791', role: 'Siswa', group: 'XII IPA 2', hadir: 17, terlambat: 1, sakit: 1, izin: 1, alpa: 0 },
-    { id: 4, name: 'Ahmad Hidayat, S.Pd', identifier: '198001012005011001', role: 'Guru', group: 'Guru', hadir: 21, terlambat: 0, sakit: 0, izin: 0, alpa: 0 },
-    { id: 5, name: 'Dra. Ratna Sari', identifier: '197508172000032002', role: 'Guru', group: 'Guru', hadir: 20, terlambat: 0, sakit: 1, izin: 0, alpa: 0 },
-  ];
+  const recapData: any[] = [];
 
   const filteredData = recapData.filter(item => 
     selectedGroup === 'Semua' ? true : item.group === selectedGroup

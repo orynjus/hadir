@@ -12,12 +12,7 @@ export default function AdminManualAttendance() {
 
   const classes = ['XII IPA 1', 'XII IPA 2', 'XII IPS 1', 'XI IPA 1', 'X IPA 1'];
 
-  const [students, setStudents] = useState([
-    { id: 1, name: 'Budi Santoso', nis: '123456789', status: 'hadir' },
-    { id: 2, name: 'Siti Aminah', nis: '123456790', status: 'belum' },
-    { id: 3, name: 'Andi Wijaya', nis: '123456791', status: 'izin' },
-    { id: 4, name: 'Dewi Lestari', nis: '123456792', status: 'belum' },
-  ]);
+  const [students, setStudents] = useState<any[]>([]);
 
   const handleStatusChange = (id: number, newStatus: string) => {
     setStudents(students.map(s => s.id === id ? { ...s, status: newStatus } : s));

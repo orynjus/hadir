@@ -90,11 +90,7 @@ export default function AdminScanner() {
     }
   }, [currentTime, todaySchedule]);
 
-  const [recentScans, setRecentScans] = useState([
-    { id: 1, name: 'Budi Santoso', role: 'Siswa', time: '06:45:12', status: 'Berhasil' },
-    { id: 2, name: 'Siti Aminah', role: 'Siswa', time: '06:44:50', status: 'Berhasil' },
-    { id: 3, name: 'Unknown QR', role: '-', time: '06:42:10', status: 'Gagal' },
-  ]);
+  const [recentScans, setRecentScans] = useState<any[]>([]);
 
   const handleSimulateScan = (type: 'Datang' | 'Pulang', isSuccess: boolean = true) => {
     const userName = 'Budi Santoso';

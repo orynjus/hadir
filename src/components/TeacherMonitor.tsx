@@ -9,16 +9,7 @@ import { Input } from '@/components/ui/input';
 export default function TeacherMonitor() {
   const [selectedClass, setSelectedClass] = useState('XII IPA 1');
 
-  const allStudents = [
-    { id: 1, name: 'Budi Santoso', nis: '123456789', class: 'XII IPA 1', status: 'Hadir', time: '06:45', avatar: 'BS' },
-    { id: 2, name: 'Siti Aminah', nis: '123456790', class: 'XII IPA 1', status: 'Hadir', time: '06:50', avatar: 'SA' },
-    { id: 3, name: 'Andi Wijaya', nis: '123456791', class: 'XII IPA 1', status: 'Terlambat', time: '07:15', avatar: 'AW' },
-    { id: 4, name: 'Dewi Lestari', nis: '123456792', class: 'XII IPA 1', status: 'Sakit', time: '-', avatar: 'DL' },
-    { id: 5, name: 'Reza Rahadian', nis: '123456793', class: 'XII IPA 1', status: 'Alpa', time: '-', avatar: 'RR' },
-    { id: 6, name: 'Ahmad Fauzi', nis: '123456794', class: 'XII IPA 2', status: 'Hadir', time: '06:55', avatar: 'AF' },
-    { id: 7, name: 'Nisa Sabyan', nis: '123456795', class: 'XII IPA 2', status: 'Hadir', time: '06:58', avatar: 'NS' },
-    { id: 8, name: 'Kevin Sanjaya', nis: '123456796', class: 'XII IPS 1', status: 'Terlambat', time: '07:20', avatar: 'KS' },
-  ];
+  const allStudents: any[] = [];
 
   const filteredStudents = allStudents.filter(s => s.class === selectedClass);
 

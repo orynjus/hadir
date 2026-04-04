@@ -11,30 +11,22 @@ export default function AdminOverview() {
 
   // Mock Data
   const stats = {
-    totalSiswa: 850,
-    totalGuru: 65,
+    totalSiswa: 0,
+    totalGuru: 0,
   };
 
   const attendanceData = [
-    { id: 'hadir', label: 'Hadir', count: 700, icon: UserCheck, color: 'text-emerald-600', bg: 'bg-emerald-100', border: 'border-emerald-200' },
-    { id: 'terlambat', label: 'Terlambat', count: 45, icon: Clock, color: 'text-amber-600', bg: 'bg-amber-100', border: 'border-amber-200' },
-    { id: 'pulang', label: 'Sudah Pulang', count: 120, icon: LogOut, color: 'text-blue-600', bg: 'bg-blue-100', border: 'border-blue-200' },
-    { id: 'izin', label: 'Izin/Sakit', count: 25, icon: FileText, color: 'text-purple-600', bg: 'bg-purple-100', border: 'border-purple-200' },
-    { id: 'alpha', label: 'Alpha', count: 10, icon: XCircle, color: 'text-red-600', bg: 'bg-red-100', border: 'border-red-200' },
-    { id: 'belum', label: 'Belum Scan', count: 115, icon: HelpCircle, color: 'text-gray-600', bg: 'bg-gray-100', border: 'border-gray-200' },
+    { id: 'hadir', label: 'Hadir', count: 0, icon: UserCheck, color: 'text-emerald-600', bg: 'bg-emerald-100', border: 'border-emerald-200' },
+    { id: 'terlambat', label: 'Terlambat', count: 0, icon: Clock, color: 'text-amber-600', bg: 'bg-amber-100', border: 'border-amber-200' },
+    { id: 'pulang', label: 'Sudah Pulang', count: 0, icon: LogOut, color: 'text-blue-600', bg: 'bg-blue-100', border: 'border-blue-200' },
+    { id: 'izin', label: 'Izin/Sakit', count: 0, icon: FileText, color: 'text-purple-600', bg: 'bg-purple-100', border: 'border-purple-200' },
+    { id: 'alpha', label: 'Alpha', count: 0, icon: XCircle, color: 'text-red-600', bg: 'bg-red-100', border: 'border-red-200' },
+    { id: 'belum', label: 'Belum Scan', count: 0, icon: HelpCircle, color: 'text-gray-600', bg: 'bg-gray-100', border: 'border-gray-200' },
   ];
 
-  const mockUsers = [
-    { id: 1, name: 'Budi Santoso', role: 'Siswa', class: 'XII IPA 1', status: 'hadir', timeIn: '06:45', timeOut: '-' },
-    { id: 2, name: 'Siti Aminah', role: 'Siswa', class: 'XII IPA 1', status: 'terlambat', timeIn: '07:15', timeOut: '-' },
-    { id: 3, name: 'Ahmad Hidayat', role: 'Guru', class: '-', status: 'hadir', timeIn: '06:30', timeOut: '-' },
-    { id: 4, name: 'Dewi Lestari', role: 'Siswa', class: 'XII IPS 2', status: 'izin', timeIn: '-', timeOut: '-' },
-    { id: 5, name: 'Reza Rahadian', role: 'Siswa', class: 'XI IPA 3', status: 'alpha', timeIn: '-', timeOut: '-' },
-    { id: 6, name: 'Joko Widodo', role: 'Siswa', class: 'X IPS 1', status: 'belum', timeIn: '-', timeOut: '-' },
-    { id: 7, name: 'Megawati', role: 'Guru', class: '-', status: 'pulang', timeIn: '06:20', timeOut: '15:00' },
-  ];
+  const users: any[] = [];
 
-  const filteredUsers = mockUsers.filter(user => 
+  const filteredUsers = users.filter(user => 
     (selectedStatus ? user.status === selectedStatus : true) &&
     (user.name.toLowerCase().includes(searchQuery.toLowerCase()) || user.role.toLowerCase().includes(searchQuery.toLowerCase()))
   );

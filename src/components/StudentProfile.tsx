@@ -6,12 +6,12 @@ import { Badge } from '@/components/ui/badge';
 
 export default function StudentProfile() {
   const student = {
-    name: 'Budi Santoso',
-    nis: '123456789',
-    class: 'XII IPA 1',
-    email: 'budi.santoso@example.com',
-    phone: '081234567890',
-    address: 'Jl. Merdeka No. 10, Jakarta',
+    name: '-',
+    nis: '-',
+    class: '-',
+    email: '-',
+    phone: '-',
+    address: '-',
   };
 
   return (
